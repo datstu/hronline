@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>HR Online</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/feather/feather.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="js/select.dataTables.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+
+
+  <link rel="stylesheet" href="css/custom.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body id="lich-hop">
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <div class="me-3">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+          </button>
+        </div>
+        <div>
+          <a class="navbar-brand brand-logo" href="index.html">
+            <img src="custom/images/logo.png" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="images/logo-mini.svg" alt="logo" />
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-top">
+        <ul class="package-head nav navbar-nav d-lg-down-none">
+          <li class="nav-item d-lg-down-none" style="position: relative;">
+            <a class="nav-link" href="tai-lieu.html">
+              <img class="icon-header-svg" src="custom/images/icons/tailieu.svg">
+              <span isngonngu="">Tài Liệu</span>
+            </a>
+          </li>
+          <li class="nav-item d-lg-down-none" id="menuCaNhanLichBieu" style="position: relative;">
+            <a class="nav-link" onclick="s_Action('LichHop','Index')">
+
+              <img class="icon-header-svg" src="custom/images/icons/lichbieu.svg" dacaidat-img-hronline="true">
+
+              <span isngonngu="" key-id="lich-bieu-menu-header" dacaidat-hronline-lang="true">Lịch Biểu</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item d-lg-down-none" id="menuCaNhanTruyenThong" style="position: relative;">
+            <a class="nav-link" onclick="s_Action('MangXaHoi','Index')">
+
+              <img class="icon-header-svg" src="custom/images/icons/truyenthong.svg" dacaidat-img-hronline="true">
+
+              <span isngonngu="" key-id="truyen-thong-menu-header" dacaidat-hronline-lang="true">Truyền Thông</span>
+
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown d-none d-lg-block">
+            <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#"
+              data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+              aria-labelledby="messageDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">Select category</p>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
+                  <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
+                  <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
+                  <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item d-none d-lg-block">
+            <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+              <span class="input-group-addon input-group-prepend border-right">
+                <span class="icon-calendar input-group-text calendar-icon"></span>
+              </span>
+              <input type="text" class="form-control">
+            </div>
+          </li>
+          <li class="nav-item">
+            <form class="search-form" action="#">
+              <i class="icon-search"></i>
+              <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+            </form>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+              <i class="icon-mail icon-lg"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+              aria-labelledby="notificationDropdown">
+              <a class="dropdown-item py-3 border-bottom">
+                <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-alert m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Application Error</h6>
+                  <p class="fw-light small-text mb-0"> Just now </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-settings m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">Settings</h6>
+                  <p class="fw-light small-text mb-0"> Private message </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item py-3">
+                <div class="preview-thumbnail">
+                  <i class="mdi mdi-airballoon m-auto text-primary"></i>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject fw-normal text-dark mb-1">New user registration</h6>
+                  <p class="fw-light small-text mb-0"> 2 days ago </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="icon-bell"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+              aria-labelledby="countDropdown">
+              <a class="dropdown-item py-3">
+                <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+                <span class="badge badge-pill badge-primary float-right">View all</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <img src="images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow py-2">
+                  <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                  <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+            <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="img-xs rounded-circle" src="images/faces/face8.jpg" alt="Profile image"> </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
+                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
+                Profile <span class="badge badge-pill badge-danger">1</span></a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i>
+                Messages</a>
+              <a class="dropdown-item"><i
+                  class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
+                FAQ</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-bs-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper folder-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+            <div class="img-ss rounded-circle bg-light border me-3"></div>Light
+          </div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme">
+            <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
+          </div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-bs-toggle="tab" href="#todo-section" role="tab"
+              aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-bs-toggle="tab" href="#chats-section" role="tab"
+              aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel"
+            aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 fw-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary me-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 fw-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-custom sidebar-offcanvas" id="sidebar">
+        <ul class="nav nav-custom">
+
+
+          <li class="nav-item nav-category">Workspace</li>
+          <li class="nav-item pos-relative">
+            <a class="nav-link " href="#form-elements" data-bs-toggle="collapse" aria-expanded="false" aria-controls="">
+              <i class="menu-icon mdi mdi-card-text-outline"></i>
+              <span class="menu-title">Tiện ích</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child " id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item pos-relative">
+            <a class="nav-link" href="#charts" data-bs-toggle="collapse" aria-expanded="false" aria-controls="charts">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Công Việc</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child " id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item pos-relative">
+            <a class="nav-link" href="#tables" data-bs-toggle="collapse" aria-expanded="false" aria-controls="tables">
+              <i class="menu-icon mdi mdi-table"></i>
+              <span class="menu-title">Đơn từ</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="tables">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+              </ul>
+            </div>
+          </li>
+
+          </li>
+          <li class="nav-item nav-category">HRM</li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-plus"></i>
+              <span class="menu-title">Tuyển Dụng</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-airplay"></i>
+              <span class="menu-title">E-Learning</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-multiple-outline"></i>
+              <span class="menu-title">Nhân Sự</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-arrange-bring-to-front"></i>
+              <span class="menu-title">Quyết Định</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-map-marker-radius"></i>
+              <span class="menu-title">Chấm Công</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-credit-card"></i>
+              <span class="menu-title">Tiền Lương</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi  mdi-duck"></i>
+              <span class="menu-title">Đánh Giá</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#auth" data-bs-toggle="collapse" aria-expanded="false" aria-controls="auth">
+              <i class="menu-icon mdi mdi-account-circle-outline"></i>
+              <span class="menu-title">Tài Sản</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse menu-child" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">system</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi mdi-file-document"></i>
+              <span class="menu-title">Báo Cáo </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html">
+              <i class="menu-icon mdi  mdi-dribbble"></i>
+              <span class="menu-title">Hệ Thống</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper folder-wrapper-content">
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab ">
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+                    <div class="row">
+                      <div class="col-lg-3 d-flex flex-column" style="padding-right: 0;">
+                        <div class="row ">
+                          <div class="col-12">
+                            <div class="card card-rounded">
+                              <div class="card-body " style="height: 90vh;">
+                                <div class="row jstree-default">
+                                  <div class="col-lg-12">
+                                    <div class="header-file-manger">
+                                      <button class="btn btn-secondary" type="button">
+                                        <i class=" mdi mdi-plus"></i>
+                                        <span isngonngu="" key-id="tao-moi">Tạo lịch biểu</span>
+                                      </button>
+
+                                    </div>
+                                    <div class="list-wrapper">
+                                      <div class="block-item-lich-hop">
+                                        <div class="header-block-item-lich-hop">
+                                          <h4 class="colorTitle" style="margin-bottom: 10px;">Lịch hôm nay</h4>
+                                        </div>
+                                        <div class="body-block-item-lich-hop">
+                                          <div class="thongbao-no-data-lichhop">Không có lịch họp hôm nay</div>
+                                        </div>
+                                      </div>
+                                      <div class="block-item-lich-hop lich-ca-nhan">
+                                        <div class="header-block-item-lich-hop ">
+                                          <h4 class="colorTitle" style="margin-bottom: 10px;">Lịch các nhân</h4>
+                                        </div>
+
+                                      </div>
+
+                                      <ul class="block-item-lich-hop todo-list todo-list-rounded jstree-contextmenu">
+                                        <div class="item-optin-lich-ca-nhan">
+                                          <input type="checkbox" checked="">
+                                          <span class="ten-optin-lich-ca-nhan">Sinh nhật</span>
+                                          <span class="badge badge-pill badge-info number-optin-lich-ca-nhan"
+                                            style="border-radius: 2px; padding: 2px 10px;">1</span>
+                                        </div>
+                                        <div class="item-optin-lich-ca-nhan">
+                                          <input type="checkbox" checked="">
+                                          <span class="ten-optin-lich-ca-nhan">Nghỉ lễ</span>
+                                          <span class="badge badge-pill badge-info number-optin-lich-ca-nhan"
+                                            style="border-radius: 2px; padding: 2px 10px;">1</span>
+                                        </div>
+                                        <div class="item-optin-lich-ca-nhan">
+                                          <input type="checkbox" checked="">
+                                          <span class="ten-optin-lich-ca-nhan">Phỏng vấn</span>
+                                          <span class="badge badge-pill badge-info number-optin-lich-ca-nhan"
+                                            style="border-radius: 2px; padding: 2px 10px;">10</span>
+                                        </div>
+                                        <div class="item-optin-lich-ca-nhan">
+                                          <input type="checkbox" checked="">
+                                          <span class="ten-optin-lich-ca-nhan">Sự kiện công ty</span>
+                                          <span class="badge badge-pill badge-info number-optin-lich-ca-nhan"
+                                            style="border-radius: 2px; padding: 2px 10px;">0</span>
+                                        </div>
+                                        <div class="item-optin-lich-ca-nhan">
+                                          <input type="checkbox" checked="">
+                                          <span class="ten-optin-lich-ca-nhan">Lịch họp</span>
+                                          <span class="badge badge-pill badge-info number-optin-lich-ca-nhan"
+                                            style="border-radius: 2px; padding: 2px 10px;">3</span>
+                                        </div>
+
+
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-9 d-flex flex-column content-folder">
+                        <div class="row ">
+                          <div class="col-12 ">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+
+
+                                <div class="container-calendar fc ui-widget fc-ltr" id="calendar">
+                                  <div class="fc-toolbar fc-header-toolbar">
+                                    <div class="fc-left">
+                                      <div class="fc-button-group">
+                                        <button type="button"
+                                          class="fc-prev-button ui-button ui-state-default ui-corner-left"
+                                          aria-label="prev"> <i class="menu-icon mdi mdi-arrow-left-bold"></i>
+                                        </button>
+                                          <button type="button"
+                                          class="fc-next-button ui-button ui-state-default ui-corner-right"
+                                          aria-label="next"> <i class="menu-icon mdi mdi-arrow-right-bold"></i></button>
+                                        
+                                        </div>
+                                          <button
+                                        type="button"
+                                        class="fc-today-button ui-button ui-state-default ui-corner-left ui-corner-right ui-state-disabled">Hôm nay </button>
+                                    </div>
+                                    <div class="fc-right">
+                                      <div class="fc-button-group"><button type="button"
+                                          class="fc-month-button ui-button ui-state-default ui-corner-left ui-state-active mode-lich-hop-active">Tháng</button><button
+                                          type="button" class="fc-listWeek-button ui-button ui-state-default">Lịch
+                                          biểu</button><button type="button"
+                                          class="fc-viewTimeLine-button ui-button ui-state-default ui-corner-right">Phòng
+                                          họp</button></div>
+                                    </div>
+                                    <div class="fc-center">
+                                      <div class="fc-button-group">
+                                        <button
+                                        type="button" class="fc-listWeek-button ui-button ui-state-default center-thang">Tháng 11 2022</button></div>
+                                      
+                                    </div>
+                                    <div class="fc-clear"></div>
+                                  </div>
+                                  <div class="fc-view-container" style="">
+                                    <div class="fc-view fc-month-view fc-basic-view" style="">
+                                      <table class="">
+                                        <thead class="fc-head">
+                                          <tr>
+                                            <td class="fc-head-container ui-widget-header">
+                                              <div class="fc-row ui-widget-header"
+                                                style="border-right-width: 1px; margin-right: 3px;">
+                                                <table class="">
+                                                  <thead>
+                                                    <tr>
+                                                      <th class="fc-week-number ui-widget-header"
+                                                        style="width: 18.5px;"><span>T</span></th>
+                                                      <th class="fc-day-header ui-widget-header fc-mon"><span>T2</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-tue"><span>T3</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-wed"><span>T4</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-thu"><span>T5</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-fri"><span>T6</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-sat"><span>T7</span>
+                                                      </th>
+                                                      <th class="fc-day-header ui-widget-header fc-sun"><span>CN</span>
+                                                      </th>
+                                                    </tr>
+                                                  </thead>
+                                                </table>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </thead>
+                                        <tbody class="fc-body">
+                                          <tr>
+                                            <td class="ui-widget-content">
+                                              <div class="fc-scroller fc-day-grid-container"
+                                                style="overflow: hidden scroll; height: 76vh;">
+                                                <div class="fc-day-grid fc-unselectable">
+                                                 
+                                                  <div class="fc-row fc-week ui-widget-content">
+                                                    <div class="fc-bg">
+                                                      <table class="">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number ui-widget-content"
+                                                              style="width: 18.5px;"></td>
+                                                            <td class="fc-day ui-widget-content fc-mon fc-past"
+                                                              data-date="2022-11-14"></td>
+                                                            <td class="fc-day ui-widget-content fc-tue fc-past"
+                                                              data-date="2022-11-15"></td>
+                                                            <td class="fc-day ui-widget-content fc-wed fc-past"
+                                                              data-date="2022-11-16"></td>
+                                                            <td class="fc-day ui-widget-content fc-thu fc-past"
+                                                              data-date="2022-11-17"></td>
+                                                            <td class="fc-day ui-widget-content fc-fri fc-past"
+                                                              data-date="2022-11-18"></td>
+                                                            <td class="fc-day ui-widget-content fc-sat fc-past"
+                                                              data-date="2022-11-19"></td>
+                                                            <td class="fc-day ui-widget-content fc-sun fc-past"
+                                                              data-date="2022-11-20"></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div class="fc-content-skeleton">
+                                                      <table>
+                                                        <thead>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width: 18.5px;">
+                                                              <span>46</span></td>
+                                                            <td class="fc-day-top fc-mon fc-past"
+                                                              data-date="2022-11-14"><span
+                                                                class="fc-day-number">14</span></td>
+                                                            <td class="fc-day-top fc-tue fc-past"
+                                                              data-date="2022-11-15"><span
+                                                                class="fc-day-number">15</span></td>
+                                                            <td class="fc-day-top fc-wed fc-past"
+                                                              data-date="2022-11-16"><span
+                                                                class="fc-day-number">16</span></td>
+                                                            <td class="fc-day-top fc-thu fc-past"
+                                                              data-date="2022-11-17"><span
+                                                                class="fc-day-number">17</span></td>
+                                                            <td class="fc-day-top fc-fri fc-past"
+                                                              data-date="2022-11-18"><span
+                                                                class="fc-day-number">18</span></td>
+                                                            <td class="fc-day-top fc-sat fc-past"
+                                                              data-date="2022-11-19"><span
+                                                                class="fc-day-number">19</span></td>
+                                                            <td class="fc-day-top fc-sun fc-past"
+                                                              data-date="2022-11-20"><span
+                                                                class="fc-day-number">20</span></td>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"></td>
+                                                            <td rowspan="2"></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Test -
+                                                                      KẾ TOÁN</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:00 - 16:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      A - Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:00 - 17:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn training VP -
+                                                                      NGuyễn Ngọc Anh - TRIỂN KHAI</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:06 - 17:06</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <div class="fc-row fc-week ui-widget-content">
+                                                    <div class="fc-bg">
+                                                      <table class="">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number ui-widget-content"
+                                                              style="width: 18.5px;"></td>
+                                                            <td class="fc-day ui-widget-content fc-mon fc-past"
+                                                              data-date="2022-11-21"></td>
+                                                            <td class="fc-day ui-widget-content fc-tue fc-past"
+                                                              data-date="2022-11-22"></td>
+                                                            <td class="fc-day ui-widget-content fc-wed fc-past"
+                                                              data-date="2022-11-23"></td>
+                                                            <td class="fc-day ui-widget-content fc-thu fc-past"
+                                                              data-date="2022-11-24"></td>
+                                                            <td class="fc-day ui-widget-content fc-fri fc-past"
+                                                              data-date="2022-11-25"></td>
+                                                            <td class="fc-day ui-widget-content fc-sat fc-past"
+                                                              data-date="2022-11-26"></td>
+                                                            <td class="fc-day ui-widget-content fc-sun fc-past"
+                                                              data-date="2022-11-27"></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div class="fc-content-skeleton">
+                                                      <table>
+                                                        <thead>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width: 18.5px;">
+                                                              <span>47</span></td>
+                                                            <td class="fc-day-top fc-mon fc-past"
+                                                              data-date="2022-11-21"><span
+                                                                class="fc-day-number">21</span></td>
+                                                            <td class="fc-day-top fc-tue fc-past"
+                                                              data-date="2022-11-22"><span
+                                                                class="fc-day-number">22</span></td>
+                                                            <td class="fc-day-top fc-wed fc-past"
+                                                              data-date="2022-11-23"><span
+                                                                class="fc-day-number">23</span></td>
+                                                            <td class="fc-day-top fc-thu fc-past"
+                                                              data-date="2022-11-24"><span
+                                                                class="fc-day-number">24</span></td>
+                                                            <td class="fc-day-top fc-fri fc-past"
+                                                              data-date="2022-11-25"><span
+                                                                class="fc-day-number">25</span></td>
+                                                            <td class="fc-day-top fc-sat fc-past"
+                                                              data-date="2022-11-26"><span
+                                                                class="fc-day-number">26</span></td>
+                                                            <td class="fc-day-top fc-sun fc-past"
+                                                              data-date="2022-11-27"><span
+                                                                class="fc-day-number">27</span></td>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td rowspan="4"></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      Minh Tuấn - NHÂN SỰ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">10:00 - 11:00</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - NGuyễn
+                                                                      Ngọc Anh - TRIỂN KHAI</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">14:46 - 15:46</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Phan
+                                                                      Tấn trung - NHÂN SỰ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">09:30 - 10:30</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn training VP -
+                                                                      Nguyễn Thị Mai - KỸ THUẬT</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:00 - 16:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="4"></td>
+                                                            <td rowspan="4"></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày nhận việc - Nguyễn A -
+                                                                      Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:33 - 16:33</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      A - Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:00 - 17:00</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Họp dự án mới</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/default-hosonhanvien.png"
+                                                                        title="Võ Quốc Trường"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">17:00 - 18:00</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <div class="fc-row fc-week ui-widget-content">
+                                                    <div class="fc-bg">
+                                                      <table class="">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number ui-widget-content"
+                                                              style="width: 18.5px;"></td>
+                                                            <td class="fc-day ui-widget-content fc-mon fc-past"
+                                                              data-date="2022-11-14"></td>
+                                                            <td class="fc-day ui-widget-content fc-tue fc-past"
+                                                              data-date="2022-11-15"></td>
+                                                            <td class="fc-day ui-widget-content fc-wed fc-past"
+                                                              data-date="2022-11-16"></td>
+                                                            <td class="fc-day ui-widget-content fc-thu fc-past"
+                                                              data-date="2022-11-17"></td>
+                                                            <td class="fc-day ui-widget-content fc-fri fc-past"
+                                                              data-date="2022-11-18"></td>
+                                                            <td class="fc-day ui-widget-content fc-sat fc-past"
+                                                              data-date="2022-11-19"></td>
+                                                            <td class="fc-day ui-widget-content fc-sun fc-past"
+                                                              data-date="2022-11-20"></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div class="fc-content-skeleton">
+                                                      <table>
+                                                        <thead>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width: 18.5px;">
+                                                              <span>48</span></td>
+                                                            <td class="fc-day-top fc-mon fc-past"
+                                                              data-date="2022-11-14"><span
+                                                                class="fc-day-number">14</span></td>
+                                                            <td class="fc-day-top fc-tue fc-past"
+                                                              data-date="2022-11-15"><span
+                                                                class="fc-day-number">15</span></td>
+                                                            <td class="fc-day-top fc-wed fc-past"
+                                                              data-date="2022-11-16"><span
+                                                                class="fc-day-number">16</span></td>
+                                                            <td class="fc-day-top fc-thu fc-past"
+                                                              data-date="2022-11-17"><span
+                                                                class="fc-day-number">17</span></td>
+                                                            <td class="fc-day-top fc-fri fc-past"
+                                                              data-date="2022-11-18"><span
+                                                                class="fc-day-number">18</span></td>
+                                                            <td class="fc-day-top fc-sat fc-past"
+                                                              data-date="2022-11-19"><span
+                                                                class="fc-day-number">19</span></td>
+                                                            <td class="fc-day-top fc-sun fc-past"
+                                                              data-date="2022-11-20"><span
+                                                                class="fc-day-number">20</span></td>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - ION
+                                                                      D’INSCRIPTION - PHỤC VỤ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:06 - 17:06</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Test -
+                                                                      KẾ TOÁN</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:00 - 16:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      A - Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:00 - 17:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn training VP -
+                                                                      NGuyễn Ngọc Anh - TRIỂN KHAI</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:06 - 17:06</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <div class="fc-row fc-week ui-widget-content">
+                                                    <div class="fc-bg">
+                                                      <table class="">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number ui-widget-content"
+                                                              style="width: 18.5px;"></td>
+                                                            <td class="fc-day ui-widget-content fc-mon fc-past"
+                                                              data-date="2022-11-21"></td>
+                                                            <td class="fc-day ui-widget-content fc-tue fc-past"
+                                                              data-date="2022-11-22"></td>
+                                                            <td class="fc-day ui-widget-content fc-wed fc-past"
+                                                              data-date="2022-11-23"></td>
+                                                            <td class="fc-day ui-widget-content fc-thu fc-past"
+                                                              data-date="2022-11-24"></td>
+                                                            <td class="fc-day ui-widget-content fc-fri fc-past"
+                                                              data-date="2022-11-25"></td>
+                                                            <td class="fc-day ui-widget-content fc-sat fc-past"
+                                                              data-date="2022-11-26"></td>
+                                                            <td class="fc-day ui-widget-content fc-sun fc-past"
+                                                              data-date="2022-11-27"></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div class="fc-content-skeleton">
+                                                      <table>
+                                                        <thead>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width: 18.5px;">
+                                                              <span>49</span></td>
+                                                            <td class="fc-day-top fc-mon fc-past"
+                                                              data-date="2022-11-21"><span
+                                                                class="fc-day-number">21</span></td>
+                                                            <td class="fc-day-top fc-tue fc-past"
+                                                              data-date="2022-11-22"><span
+                                                                class="fc-day-number">22</span></td>
+                                                            <td class="fc-day-top fc-wed fc-past"
+                                                              data-date="2022-11-23"><span
+                                                                class="fc-day-number">23</span></td>
+                                                            <td class="fc-day-top fc-thu fc-past"
+                                                              data-date="2022-11-24"><span
+                                                                class="fc-day-number">24</span></td>
+                                                            <td class="fc-day-top fc-fri fc-past"
+                                                              data-date="2022-11-25"><span
+                                                                class="fc-day-number">25</span></td>
+                                                            <td class="fc-day-top fc-sat fc-past"
+                                                              data-date="2022-11-26"><span
+                                                                class="fc-day-number">26</span></td>
+                                                            <td class="fc-day-top fc-sun fc-past"
+                                                              data-date="2022-11-27"><span
+                                                                class="fc-day-number">27</span></td>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td rowspan="4"></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      Minh Tuấn - NHÂN SỰ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">10:00 - 11:00</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - NGuyễn
+                                                                      Ngọc Anh - TRIỂN KHAI</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">14:46 - 15:46</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Phan
+                                                                      Tấn trung - NHÂN SỰ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">09:30 - 10:30</span></div>
+                                                              </a></td>
+                                                            <td class="fc-event-container" rowspan="4"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn training VP -
+                                                                      Nguyễn Thị Mai - KỸ THUẬT</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:00 - 16:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="4"></td>
+                                                            <td rowspan="4"></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày nhận việc - Nguyễn A -
+                                                                      Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:33 - 16:33</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      A - Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:00 - 17:00</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Họp dự án mới</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/default-hosonhanvien.png"
+                                                                        title="Võ Quốc Trường"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">17:00 - 18:00</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                  <div class="fc-row fc-week ui-widget-content">
+                                                    <div class="fc-bg">
+                                                      <table class="">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number ui-widget-content"
+                                                              style="width: 18.5px;"></td>
+                                                            <td class="fc-day ui-widget-content fc-mon fc-past"
+                                                              data-date="2022-11-14"></td>
+                                                            <td class="fc-day ui-widget-content fc-tue fc-past"
+                                                              data-date="2022-11-15"></td>
+                                                            <td class="fc-day ui-widget-content fc-wed fc-past"
+                                                              data-date="2022-11-16"></td>
+                                                            <td class="fc-day ui-widget-content fc-thu fc-past"
+                                                              data-date="2022-11-17"></td>
+                                                            <td class="fc-day ui-widget-content fc-fri fc-past"
+                                                              data-date="2022-11-18"></td>
+                                                            <td class="fc-day ui-widget-content fc-sat fc-past"
+                                                              data-date="2022-11-19"></td>
+                                                            <td class="fc-day ui-widget-content fc-sun fc-past"
+                                                              data-date="2022-11-20"></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                    <div class="fc-content-skeleton">
+                                                      <table>
+                                                        <thead>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width: 18.5px;">
+                                                              <span>50</span></td>
+                                                            <td class="fc-day-top fc-mon fc-past"
+                                                              data-date="2022-11-14"><span
+                                                                class="fc-day-number">14</span></td>
+                                                            <td class="fc-day-top fc-tue fc-past"
+                                                              data-date="2022-11-15"><span
+                                                                class="fc-day-number">15</span></td>
+                                                            <td class="fc-day-top fc-wed fc-past"
+                                                              data-date="2022-11-16"><span
+                                                                class="fc-day-number">16</span></td>
+                                                            <td class="fc-day-top fc-thu fc-past"
+                                                              data-date="2022-11-17"><span
+                                                                class="fc-day-number">17</span></td>
+                                                            <td class="fc-day-top fc-fri fc-past"
+                                                              data-date="2022-11-18"><span
+                                                                class="fc-day-number">18</span></td>
+                                                            <td class="fc-day-top fc-sat fc-past"
+                                                              data-date="2022-11-19"><span
+                                                                class="fc-day-number">19</span></td>
+                                                            <td class="fc-day-top fc-sun fc-past"
+                                                              data-date="2022-11-20"><span
+                                                                class="fc-day-number">20</span></td>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - ION
+                                                                      D’INSCRIPTION - PHỤC VỤ</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:06 - 17:06</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Test -
+                                                                      KẾ TOÁN</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">15:00 - 16:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                            <td class="fc-event-container" rowspan="2"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn phỏng vấn - Nguyễn
+                                                                      A - Nhân viên kinh doanh</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:00 - 17:00</span></div>
+                                                              </a></td>
+                                                            <td rowspan="2"></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="fc-week-number" style="width:18.5px"></td>
+                                                            <td class="fc-event-container"><a
+                                                                class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable"
+                                                                style="border: none;">
+                                                                <div class="fc-content"> <span class="fc-title">
+                                                                    <p class="ten-lich-hop">Ngày hẹn training VP -
+                                                                      NGuyễn Ngọc Anh - TRIỂN KHAI</p>
+                                                                    <div class="info-nguoi-lap"><img
+                                                                        onerror="imgError(this)"
+                                                                        src="/template/custom/images/avatar.png"
+                                                                        title="Admin Hronline"></div>
+                                                                  </span><span class="fc-time"
+                                                                    style="display: block;">16:06 - 17:06</span></div>
+                                                              </a></td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+                                                  </div>
+                                                
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                
+                                  <div id="wrapTimeLineLichHop">
+
+                                  </div>
+                                  <div id="headerTimeLineLichHop">
+                                    <h5></h5>
+                                  </div>
+                                </div>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <script src="vendors/progressbar.js/progressbar.min.js"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/Chart.roundedBarCharts.js"></script>
+  <script src="js/custom.js"></script>
+
+  <!-- End custom js for this page-->
+</body>
+
+</html>
